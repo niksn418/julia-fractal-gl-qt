@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Shaders/diffuse.fs</file>
+        <file>Shaders/diffuse.vs</file>
+    </qresource>
+</RCC>
