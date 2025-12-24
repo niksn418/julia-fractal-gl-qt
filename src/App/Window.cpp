@@ -77,7 +77,10 @@ Window::Window() noexcept
 	};
 
 	auto fps = new QLabel(formatFPS(0), this);
-	fps->setStyleSheet("QLabel { color : white; }");
+	fps->setStyleSheet("QLabel { background-color : black; color : white; }");
+	auto fpsLayout = new QHBoxLayout();
+	fpsLayout->addWidget(fps);
+	fpsLayout->addStretch(1);
 
 	auto fractalSettings = new QGroupBox("Fractal Settings");
 	auto fractalSettingsLayout = new QFormLayout();
@@ -102,10 +105,9 @@ Window::Window() noexcept
 		[this](float value) { radiusThresholdSquared_ = value * value; }
 	));
 	qualitySettings->setLayout(qualitySettingsLayout);
-	
 
 	auto layout = new QVBoxLayout();
-	layout->addWidget(fps);
+	layout->addLayout(fpsLayout);
 	layout->addStretch(1);
 	layout->addWidget(fractalSettings);
 	layout->addWidget(qualitySettings);
