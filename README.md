@@ -1,18 +1,16 @@
-![build_cmake_status](https://github.com/sadads1337/mse-gl-hw-template/actions/workflows/build_cmake.yml/badge.svg)
+![build_cmake_status](https://github.com/niksn418/julia-fractal-gl-qt/actions/workflows/build_cmake.yml/badge.svg)
 
-# ITMO MSE OpenGL homework template 2022
+# Julia set OpenGL renderer
 
-Qt based demo project to demonstrate how to use and implement basic 3D graphics features.
-No optimizations exists. Use only for educational purposes.
-
-## Purposes
-
-Help students with their submission is the main goal of this repository. Do not use this code in production!!!
+App to draw Julia Set fractal using Qt5 and OpenGl 3.3. Supports:
+- zooming and moving (via mouse scroll and mouse dragging respectively);
+- configuring fractal, e.g. changing its `c` parameter;;
+- configuring rendering quality via specifying number of iterations and escape radius.
 
 ## Requirements
 
 - git [https://git-scm.com](https://git-scm.com);
-- C++17 compatible compiler;
+- C++20 compatible compiler;
 - CMake 3.10+ [https://cmake.org/](https://cmake.org/);
 - Qt 5 [https://www.qt.io/](https://www.qt.io/);
 - (Optionally) Your favourite IDE;
@@ -26,9 +24,12 @@ Help students with their submission is the main goal of this repository. Do not 
 
 - Clone this repository `git clone <url> <path>`;
 - Go to root folder `cd <path-to-repo-root>`;
-- Create and go to build folder `mkdir -p build-release; cd build-release`;
-- Run CMake `cmake .. -G <generator-name> -DCMAKE_PREFIX_PATH=<path-to-qt-installation> -DCMAKE_BUILD_TYPE=Release`;
-- Run build. For Ninja generator it looks like `ninja -j<number-of-threads-to-build>`.
+- Run CMake `cmake -B cmake-build-release -DCMAKE_BUILD_TYPE=Release`;
+    - If you want, you can specify generator name via `-G <generator-name>`;
+    - If Qt is not found by CMake, try to specify path to it via `-DCMAKE_PREFIX_PATH=<path-to-qt-installation>`;
+- Run build `cmake --build cmake-build-release -j<number-of-threads-to-build>`;
+    - To build and run, add `-t run`;
+    - The other way, f.e. via Ninja generator, looks like `cd cmake-build-release; ninja -j<number-of-threads-to-build>`.
 
 ## Build with MSVC
 
