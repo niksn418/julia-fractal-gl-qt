@@ -85,11 +85,11 @@ Window::Window() noexcept
 	auto fractalSettings = new QGroupBox("Fractal Settings");
 	auto fractalSettingsLayout = new QFormLayout();
 	fractalSettingsLayout->addRow("Re(c):", createFloatSlider(
-		-1.f, 1.f, c_[0], 1e-4,
+		-1.f, 1.f, c_[0], 1e-4f,
 		[this](float value) { c_[0] = value; }
 	));
 	fractalSettingsLayout->addRow("Im(c):", createFloatSlider(
-		-1.f, 1.f, c_[1], 1e-4,
+		-1.f, 1.f, c_[1], 1e-4f,
 		[this](float value) { c_[1] = value; }
 	));
 	fractalSettings->setLayout(fractalSettingsLayout);
