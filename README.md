@@ -24,6 +24,8 @@ App to draw Julia Set fractal using Qt5 and OpenGl 3.3. Supports:
 
 - Clone this repository `git clone <url> <path>`;
 - Go to root folder `cd <path-to-repo-root>`;
+
+Now, if on POSIX OS and Qt is in PATH, you can run `./build_and_run.sh`. Or, manually:
 - Run CMake `cmake -B cmake-build-release -DCMAKE_BUILD_TYPE=Release`;
     - If you want, you can specify generator name via `-G <generator-name>`;
     - If Qt is not found by CMake, try to specify path to it via `-DCMAKE_PREFIX_PATH=<path-to-qt-installation>`;
