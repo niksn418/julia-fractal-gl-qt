@@ -3,18 +3,22 @@ set(SRCS
     Window.cpp
     Window.h
 
-    Shaders/diffuse.fs
-    Shaders/diffuse.vs
+    Shaders/julia.fs
+    Shaders/julia.vs
 
     resources.qrc
 )
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(demo-app ${SRCS})
+add_executable(julia_fractal ${SRCS})
 
-target_link_libraries(demo-app
+target_link_libraries(julia_fractal
     PRIVATE
         Qt5::Widgets
         FGL::Base
+)
+
+add_custom_target(run
+    COMMAND julia_fractal
 )

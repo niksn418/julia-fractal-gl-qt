@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>Shaders/diffuse.fs</file>
-        <file>Shaders/diffuse.vs</file>
+        <file>Shaders/julia.fs</file>
+        <file>Shaders/julia.vs</file>
     </qresource>
 </RCC>
