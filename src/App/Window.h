@@ -66,8 +66,10 @@ private:
 	GLint cLoc_ = -1;
 	GLint radiusThresholdSquaredLoc_ = -1;
 	GLint maxIterationsLoc_ = -1;
+	GLint superSamplingRatioLoc_ = -1;
 
-	GLint posScaleLoc_ = -1;
+	GLint scaleLoc_ = -1;
+	GLint resolutionLoc_ = -1;
 	GLint centerLoc_ = -1;
 
 	GLint aColorLoc_ = -1;
@@ -82,6 +84,7 @@ private:
 	QVector2D c_{-0.7269f, 0.1889f};
 	GLfloat radiusThresholdSquared_ = 4.f;
 	unsigned int maxIterations_ = 512;
+	unsigned int superSamplingRatio_ = 1;
 
 	QVector2D resolution_{2, 2};
 	QVector2D center_{};

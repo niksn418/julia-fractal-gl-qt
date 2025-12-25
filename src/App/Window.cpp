@@ -104,6 +104,10 @@ Window::Window() noexcept
 		0.1f, 10.f, sqrt(radiusThresholdSquared_), 0.1f,
 		[this](float value) { radiusThresholdSquared_ = value * value; }
 	));
+	qualitySettingsLayout->addRow("Supersampling:", createIntSlider(
+		1, 16, superSamplingRatio_,
+		[this](int value) { superSamplingRatio_ = value; }
+	));
 	qualitySettings->setLayout(qualitySettingsLayout);
 
 	auto layout = new QVBoxLayout();
@@ -163,7 +167,9 @@ void Window::onInit()
 	cLoc_ = program_->uniformLocation("c");
 	radiusThresholdSquaredLoc_ = program_->uniformLocation("radiusThresholdSquared");
 	maxIterationsLoc_ = program_->uniformLocation("maxIterations");
-	posScaleLoc_ = program_->uniformLocation("posScale");
+	superSamplingRatioLoc_ = program_->uniformLocation("superSamplingRatio");
+	scaleLoc_ = program_->uniformLocation("scale");
+	resolutionLoc_ = program_->uniformLocation("resolution");
 	centerLoc_ = program_->uniformLocation("center");
 	aColorLoc_ = program_->uniformLocation("aColor");
 	bColorLoc_ = program_->uniformLocation("bColor");
@@ -197,8 +203,10 @@ void Window::onRender()
 	program_->setUniformValue(cLoc_, c_);
 	program_->setUniformValue(radiusThresholdSquaredLoc_, radiusThresholdSquared_);
 	program_->setUniformValue(maxIterationsLoc_, maxIterations_);
+	program_->setUniformValue(superSamplingRatioLoc_, superSamplingRatio_);
 
-	program_->setUniformValue(posScaleLoc_, scale_ * (resolution_ / 2));
+	program_->setUniformValue(scaleLoc_, scale_);
+	program_->setUniformValue(resolutionLoc_, resolution_);
 	program_->setUniformValue(centerLoc_, center_);
 
 	program_->setUniformValue(aColorLoc_, QVector3D(.5f, .5f, .5f));
